@@ -12,27 +12,24 @@
             margin: 0;
             justify-content: center;
             align-items: center;
-            background-color: blueviolet;
+            background-color: rgb(255, 255, 255);
             height: 100%;
         }
-        div{
-            background-image:url(https://papelariacriativa.com.br/wp-content/uploads/bloco-bingo-amarelo-100fls-fd-grafica-1.jpg);
-            height: 919px; 
-            width: 919px;       
-        }
         td,th{
-            font-size: 120px;
+            font-size: 30px;
             text-align: center;
-
+            border: 2px solid;  
+            padding: 30px;
         }
         table{
             border: 2px solid;
-            margin: 100px;
+            margin: 10px;
+            background-color: rgba(228, 167, 0, 0.904);
         }
     </style>
 </head>
 <body>
-    <div>
+    
         <table>
             <thead>
                 <tr>
@@ -60,10 +57,10 @@
                 <td>65</td>
             </tr>
 
-            <tr>
+            <tr>    
                 <td>02</td>
                 <td>28</td>
-                <td><img src="https://cinepop.com.br/wp-content/uploads/2019/10/coringa2.jpg" height="20px" width="19px"></td>
+                <td></td>
                 <td>60</td>
                 <td>72</td>
             </tr>
@@ -85,7 +82,17 @@
             </tr>
         </tbody>
         </table>
-            
-    </div>        
+            <script>
+                cartelaB=[];
+                cartelaC=[];
+                cartelaD=[];
+                cartelaE=[];
+                cartelaF=[];
+            function gerar_cartela(){
+                let numero=Array.from({length:75},(_,i) =>i + 1);
+            }
+
+            </script>
+           
 </body>
 </html>
