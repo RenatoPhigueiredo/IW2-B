@@ -83,15 +83,39 @@
         </tbody>
         </table>
             <script>
-                cartelaB=[];
-                cartelaC=[];
-                cartelaD=[];
-                cartelaE=[];
-                cartelaF=[];
-            function gerar_cartela(){
-                let numero=Array.from({length:75},(_,i) =>i + 1);
-            }
+                cartelaB=[]; //1 a 15
+                cartelaI=[]; //16 a 30
+                cartelaN=[]; //31 a 45
+                cartelaG=[]; //46 a 60
+                cartelaO=[]; //61 a 75
 
+            function GerarArray (nminicial, quantidade){
+                var retorno= []
+                for (var i=0;i< quantidade;i++){
+                    retorno.push(nminicial)
+                    nminicial++;
+                }
+                return retorno;
+            }    
+                cartelaB= GerarArray(1,15);
+                console.log(cartelaB);
+            
+                cartelaI= GerarArray(16,15);
+                console.log(cartelaI);
+
+                cartelaN= GerarArray(31,15);
+                console.log(cartelaN);
+
+                cartelaG= GerarArray(46,15);
+                console.log(cartelaG);
+
+                cartelaO= GerarArray(61,15);
+                console.log(cartelaO);
+
+                /* exercicio para nota,faça 5 arrays 1 para cada numero do
+                 bingo e dentro deles coloque 5 numeros referentes a sua letra 
+                 sem repetir nenhum numero tudo dinamicamente
+                */
             </script>
            
 </body>
