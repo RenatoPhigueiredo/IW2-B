@@ -43,7 +43,7 @@
             </thead>
         <tbody>
             <tr>
-                <td id="b1" onclick="marcador()">12</td>
+                <td id="b1" onclick="marcador('b1', this)">12</td>
                 <td id="i1">24</td>
                 <td id="n1">33</td>
                 <td id="g1">51</td>
@@ -120,8 +120,14 @@
                 console.log(b1);
                 console.log(b2);
 
-                function marcador(){
-                    alert("deu serto");
+                function marcador(nomeId, elemento){
+                    console.log(elemento);
+                    console.log(nomeId);
+                    elemento.style.backgroundColor ='red';
+                    alert(elemento.style.backgroundColor);
+                    if(elemento.style.backgroundColor == "red"){
+                        alert("a cor é vermeia");   
+                    }
                 }
 
                 /* exercicio para nota,faça 5 arrays 1 para cada numero do
