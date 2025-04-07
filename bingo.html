@@ -83,6 +83,10 @@
             </tr>
         </tbody>
         </table>
+        
+
+        <button onclick="gerar_cartela()">Gerar cartela</button>
+
             <script>
                 
                 cartelaB=[]; //1 a 15
@@ -113,7 +117,28 @@
 
                 cartelaO= GerarArray(61,15);
                 console.log(cartelaO);
-            
+
+            function gerar_cartela() 
+            {
+                for (var i = 1; i <= 5; i++)
+                {
+                    var td = document.getElementById("g"+i)
+                    td.innerText = cartelaG[i]
+
+                    td = document.getElementById("b"+i)
+                    td.innerText = cartelaB[i]
+
+                    td = document.getElementById("i"+i)
+                    td.innerText = cartelaI[i]
+
+                    td = document.getElementById("n"+i)
+                    td.innerText = cartelaN[i]
+
+                    td = document.getElementById("o"+i)
+                    td.innerText = cartelaO[i]
+
+                }
+            }
                 var b1 = document.getElementById("b1");
                 var b2= document.getElementById("b2");
 
@@ -126,11 +151,10 @@
                     elemento.style.backgroundColor ='red';
 
                     alert(elemento.style.backgroundColor);
-                    if(elemento.style.backgroundColor == "red"){
+
+                    if(elemento.style.backgroundColor == "red")
+                    {
                         alert("a cor é vermeia");   
-                    }
-                    else{
-                        
                     }
                 }
 
