@@ -103,19 +103,19 @@
                 }
                 return retorno;
             }    
-                cartelaB= GerarArray(1,15);
+                cartelaB= misturaarray( GerarArray(1,15));
                 console.log(cartelaB);
             
-                cartelaI= GerarArray(16,15);
+                cartelaI= misturaarray( GerarArray(16,15));
                 console.log(cartelaI);
 
-                cartelaN= GerarArray(31,15);
+                cartelaN= misturaarray( GerarArray(31,15));
                 console.log(cartelaN);
 
-                cartelaG= GerarArray(46,15);
+                cartelaG= misturaarray( GerarArray(46,15));
                 console.log(cartelaG);
 
-                cartelaO= GerarArray(61,15);
+                cartelaO= misturaarray( GerarArray(61,15));
                 console.log(cartelaO);
 
             function gerar_cartela() 
@@ -136,16 +136,50 @@
 
                     td = document.getElementById("o"+i)
                     td.innerText = cartelaO[i]
-
+                    
                 }
+
             }
+             
+             function numeroaleatorio(numeroMinimo,numeroMaximo)
+             {
+                 var retorno = Math.floor(Math.random()* numeroMaximo)
+
+                 if (retorno >0 && retorno >= numeroMinimo && retorno <= numeroMaximo )
+                 {
+                    return retorno
+                 }
+                 else
+                 {
+                     return numeroaleatorio (numeroMinimo, numeroMaximo)
+                 }
+             }
+
+             function misturaarray(arrey)
+             {
+                 var aleatorio
+                 var cont= arrey.length
+                var auxiliar 
+                while(cont != 0){
+                    aleatorio= numeroaleatorio(1,arrey,length)
+                    cont--
+                    auxiliar= array(cont)
+                    arrey[cont]=array[aleatorio]
+                    arrey[aleatorio]=auxiliar
+
+                }               
+                return array
+             }
+
+
                 var b1 = document.getElementById("b1");
                 var b2= document.getElementById("b2");
 
                 console.log(b1);
                 console.log(b2);
 
-                function marcador(nomeId, elemento){
+                function marcador(nomeId, elemento)
+                {
                     console.log(elemento);
                     console.log(nomeId);
                     elemento.style.backgroundColor ='red';
