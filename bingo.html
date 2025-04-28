@@ -27,6 +27,7 @@
             background-color: rgba(228, 167, 0, 0.904);
         }
         
+        
     </style>
 </head>
 <body>
@@ -87,7 +88,7 @@
 
         <button onclick="gerar_cartela()">Gerar cartela</button>
 
-            <script>
+            <script type="text/Javascript">
                 
                 cartelaB=[]; //1 a 15
                 cartelaI=[]; //16 a 30
@@ -103,7 +104,25 @@
                 }
                 return retorno;
             }    
-                cartelaB= misturaarray( GerarArray(1,15));
+            
+                cartelaB=( GerarArray(1,15));
+                console.log(cartelaB);
+            
+                cartelaI= ( GerarArray(16,15));
+                console.log(cartelaI);
+
+                cartelaN= ( GerarArray(31,15));
+                console.log(cartelaN);
+
+                cartelaG= ( GerarArray(46,15));
+                console.log(cartelaG);
+
+                cartelaO=( GerarArray(61,15));
+                console.log(cartelaO);
+
+                function gerar_cartela() 
+                {
+                    cartelaB= misturaarray( GerarArray(1,15));
                 console.log(cartelaB);
             
                 cartelaI= misturaarray( GerarArray(16,15));
@@ -117,11 +136,9 @@
 
                 cartelaO= misturaarray( GerarArray(61,15));
                 console.log(cartelaO);
-
-            function gerar_cartela() 
-            {
-                for (var i = 1; i <= 5; i++)
-                {
+                 for (var i = 1; i <= 5; i++)
+                    {
+                    
                     var td = document.getElementById("g"+i)
                     td.innerText = cartelaG[i]
 
@@ -155,17 +172,17 @@
                  }
              }
 
-             function misturaarray(arrey)
+             function misturaarray(array)
              {
                  var aleatorio
-                 var cont= arrey.length
+                 var cont= array.length
                 var auxiliar 
                 while(cont != 0){
-                    aleatorio= numeroaleatorio(1,arrey,length)
+                    aleatorio= numeroaleatorio(1,array.length)
                     cont--
-                    auxiliar= array(cont)
-                    arrey[cont]=array[aleatorio]
-                    arrey[aleatorio]=auxiliar
+                    auxiliar= array[cont]
+                    array[cont]=array[aleatorio]
+                    array[aleatorio]=auxiliar
 
                 }               
                 return array
@@ -200,5 +217,15 @@
 
             </script>
            
+           <table id="tabela">
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+               <th></th>
+           </table>
 </body>
 </html>
