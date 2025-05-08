@@ -113,6 +113,7 @@
                 for (var i=0;i< quantidade;i++){
                     retorno.push(nminicial)
                     nminicial++;
+                    
                 }
                 return retorno;
             }    
@@ -159,12 +160,21 @@
 
                     td = document.getElementById("i"+i)
                     td.innerText = cartelaI[i]
-
+                    
                     td = document.getElementById("n"+i)
-                    td.innerText = cartelaN[i]
+                    td.innerText = cartelaN[i] 
+                    if( i == 3 )
+                    {
+                        td.innerText = "";
+                    }
+                    else
+                    {
+                        td.innerText= cartelaN[i];
+                    }
 
                     td = document.getElementById("o"+i)
                     td.innerText = cartelaO[i]
+
                     
                 }
 
