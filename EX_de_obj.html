@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+
+        }
+        #resultado{
+            border-radius: 15px;
+            background-color: gray;
+            padding: 15px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="resultado"></div>
+
+    <script>
+        //objetos carro
+        var carro1 = {"marca":() => "",
+            "modelo":() => "",
+            "ano":() => "2024",
+            "cor": "vermelho",
+        };
+
+        var carro2 = {"marca":() =>"",
+            "modelo":() =>"",
+            "ano":() =>"2008",
+            "cor":"azul",
+        };
+
+        var carro3 = {"marca":()=> "",
+            "modelo":()=> "",
+            "ano":()=> "1999",
+            "cor": "branco",
+
+        };
+        //varriavel para apresentar os carros na div
+        var resultado=document.getElementById("resultado")
+
+        resultado.innerText=
+        carro1.cor + "\n" +
+        carro2.cor +"\n" +
+        carro3.cor +"\n";
+        //pessoa
+        var pessoa={}
+
+        var endereco={"rua":()=> "",
+            "cidade":()=> "",
+            "numero":()=> "",
+        };
+
+    </script>
+</body>
+</html>

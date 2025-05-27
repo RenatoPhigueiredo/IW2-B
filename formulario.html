@@ -10,17 +10,29 @@
     
     <form action="salvar.html" method="post" onsubmit="return validarformulario()">
         <label>Cep</label>
-        <input type="text" name="cep" id="cep" class="campo" ><br><br>
+        <input type="text" name="cep" id="cep" class="campo" ><br>
+        <span id="erro-cep" style="color: red;"></span><br>
+
         <label>Endereço</label>
-        <input type="text" name="endereco" id="endereco" class="campo" /> <br><br>
+        <input type="text" name="endereco" id="endereco" class="campo" /> <br>
+        <span id="erro-endereco" style="color: red;"></span><br>
+
         <label>Número</label>
-        <input type="text" name="numero" id="numero" class="campo" /><br><br>
+        <input type="text" name="numero" id="numero" class="campo" /><br>
+        <span id="erro-numero" style="color: red;"></span><br>
+
         <label>Bairro</label>
-        <input type="text" name="bairro" id="bairro" class="campo" /><br><br>
+        <input type="text" name="bairro" id="bairro" class="campo" /><br>
+        <span id="erro-bairro" style="color: red;"></span><br>
+
         <label>Cidade</label>
-        <input type="text" name="cidade" id="cidade" class="campo" /> <br><br>
+        <input type="text" name="cidade" id="cidade" class="campo" /> <br>
+        <span id="erro-cidade" style="color: red;"></span><br>
+
         <label>Estado</label>
-        <input type="text" name="estado" id="estado" class="campo" /> <br><br>
+        <input type="text" name="estado" id="estado" class="campo" /> <br>
+        <span id="erro-estado" style="color: red;"></span><br>
+
         <button id="botao" class="botao" type="submit">
             Enviar dados
         </button>
@@ -30,46 +42,93 @@
         function validarformulario()
         {
             var cep= document.getElementById("cep");
+            var erro_cep=document.getElementById("erro-cep");
+
             if(cep.value == "")
             {
-                cep.style.border-color=="red";
+                cep.style.borderColor="red";
+                erro_cep.innerText="este campo nao pode fica vazio";
                 alert("PREENCHA O CAMPO CEP");
                 return false
+
             }
+            else{
+                cep.style.borderColor="black"
+            }
+
+            
             var endereço= document.getElementById("endereco");
+            var erro_endereco=document.getElementById("erro-endereco")
             if(endereco.value == "")
             {
                 alert("PREENCHA O CAMPO ENDEREÇO");
+                endereco.style.borderColor="red";
+                erro_endereco.innerText="este campo nao pode fica vazio";
                 return false
+            }
+            else{
+                endereço.borderColor="black";
             }
 
             var numero= document.getElementById("numero");
+            var erro_numero=document.getElementById("erro-numero")
+
             if(numero.value == "")
             {
                 alert("PREENCHA O CAMPO NUMERO");
+                numero.style.borderColor="red";
+                erro_numero.innerText="este campo nao pode fica vazio";
                 return false
             }
+            else{
+                numero.style.borderColor="black";
+            }
+
             var Bairro= document.getElementById("bairro");
+            var erro_bairro=document.getElementById("erro-bairro")
+
             if(Bairro.value == "")
             {
                 alert("PREENCHA O CAMPO BAIRRO");
+                Bairro.style.borderColor="red";
+                erro_bairro.innerText="este campo nao pode fica vazio";
                 return false
+            }
+            else{
+                Bairro.style.borderColor="black";
             }
             
             var Cidade= document.getElementById("cidade");
+            var erro_cidade=document.getElementById("erro-cidade")
+
             if(Cidade.value == "")
             {
                 alert("PREENCHA O CAMPO CIDADE");
+                Cidade.style.borderColor="red";
+                erro_cidade.innerText="este campo nao pode fica vazio";
                 return false
+            }
+            else {
+               Cidade.borderColor="black"; 
             }
 
             var Estado= document.getElementById("estado");
+            var erro_estado=document.getElementById("erro-estado")
+
             if(Estado.value == "")
             {
                 alert("PREENCHA O CAMPO ESTADO");
+                Bairro.style.borderColor="red";
+                erro_bairro.innerText="este campo nao pode fica vazio";
+                
                 return false
             }
+
+            else {
+               Estado.borderColor="black"; 
+            }
         }
+        
     </script>
 
 </body>
