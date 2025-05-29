@@ -7,19 +7,27 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="resultado"></div>
     <script>
-        var cadeira = {"cor":"branca",
+        var cadeira01= {
+            "cor": "preta",
+            "modelo": "rodinha",
+            "material":"tecido"
+        }
 
-        // PROPRIEDADES                 VALOR
-                    "girar":() =>{ alert ("aaaaaaaaaa")},
-                    "subir": () =>  {document.write("subindo")},
-                    "descendo":() => {console.log("descendo")},
-                    "andar": (direcao) => {alert ("sentido: " +direcao)},  
-                
-    };
-    cadeira.girar()
-    cadeira.cor()
-    cadeira.andar("em frente")
+        var cadeira02={
+            "cor":"branca",
+            "modelo": "escolar",
+            "material":"plastico"
+
+        }
+
+        var resultado= document.getElementById("resultado");
+
+        resultado.innerText=
+        cadeira01.cor + "\n" +
+        cadeira02.cor
+
     
     </script>
 </body>
