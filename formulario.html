@@ -10,7 +10,8 @@
     
     <form action="salvar.html" method="post" onsubmit="return validarformulario()">
         <label>Cep</label>
-        <input type="text" name="cep" id="cep" class="campo" ><br>
+        <input type="text" name="cep" id="cep" class="campo" >
+        <button onclick="consultarAPI()">consultar CEP</button><br>
         <span id="erro-cep" style="color: red;"></span><br>
 
         <label>Endereço</label>
@@ -34,11 +35,35 @@
         <span id="erro-estado" style="color: red;"></span><br>
 
         <button id="botao" class="botao" type="submit">
-            Enviar dados
+            Consultar CEP
         </button>
     </form>
 
     <script>
+        // funcao que podera ser utilizada na pokedex
+        function consultaAPI()
+        {
+            var cep =getElementById("cep");
+            var url = "viacep.com.br/ws/01001000/json/"+cep.value+"json";
+            fetch(url).then((response) => response.json ()).then((dados) => {
+
+                var cep=getElementById("cep");
+                var endereco=getElementById("endereco");
+                var numero= getElementById("numero");
+                var bairro=getElementById("bairro");
+                var cidade=getElementById("cidade");
+                var estado=getElementById("estado");
+
+                cep.value=dados.cep;
+                endereco.value =dados.logradouro;
+                numero.value=dados.ddd;
+                bairro.value=dados.bairro;
+                cidade.value=dados.localidade;
+                estado.value=dados.regiao;
+
+            })
+        }
+
         function validarformulario()
         {
             var cep= document.getElementById("cep");
