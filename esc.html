@@ -38,12 +38,37 @@
      <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <form class="d-flex" role="search">
-        <button type="button" class="btn btn-primary">Inserir aluno</button>
+
+        <!-- Botão para acionar modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Inserir Aluno
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar Aluno</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <input class="form-control me-2" type="search" placeholder="Pesquise Aqui" aria-label="Search"/>
       <button class="btn btn-outline-success" type="submit">Pesquisar</button>
     </form>
   </div>
 </nav>
+
 <!-- tabela -->
  <div class="tabela">
     <table class="table caption-top">
@@ -57,58 +82,12 @@
       <th scope="col">ações</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>0001</td>
-      <td>15/03/2008</td>
-      <td>
-    <!-- ações -->
-    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger">Excluir</button>
-    <button type="button" class="btn btn-warning">Alterar</button></div>
+  <tbody id="CorpoTabela">
 
-</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>0002</td>
-      <td>02/07/2008</td>
-      <td>
-    <!-- ações -->
-     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger">Excluir</button>
-    <button type="button" class="btn btn-warning">Alterar</button></div></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John</td>
-      <td>0003</td>
-      <td>20/10/2008</td>
-      <td>
-        
-    <!-- ações -->
-     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger">Excluir</button>
-    <button type="button" class="btn btn-warning">Alterar</button></div></td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Alexandre</td>
-      <td>0004</td>
-      <td>05/01/2008</td>
-      <td>
-        
-    <!-- ações -->
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger">Excluir</button>
-    <button type="button" class="btn btn-warning">Alterar</button></div></td>
-    </tr>
   </tbody>
 </table>
 </div>
-
+  <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+  <script></script>
 </body>
 </html>
