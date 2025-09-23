@@ -1,8 +1,9 @@
 CREATE DATABASE servidor;
 USE servidor;
-
-CREATE TABLE usuario(
-    nome VARCHAR(255) PRIMARY KEY,
-    endereco VARCHAR(255),
-    ativo TINYINT(1)
+CREATE TABLE usuarios(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+nome varchar(255),
+gmail varchar(255),
+senha varchar(255),
+ativo bit(1) DEFAULT b'1'
 );
