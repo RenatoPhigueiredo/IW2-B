@@ -80,7 +80,7 @@
           if (pesquisa){
             url += "?pesquisa=" + encodeURIComponent(pesquisa);
           }
-
+          
           fetch(url)
             .then(resposta => resposta.json())
             .then(dados => {
@@ -90,14 +90,15 @@
                 const tr =document.createElement("tr");
 
                 tr.innerHTML =`
-                <td>${usuario.ID}</td>
-                <td>${usuario.NOME}</td>
-                <td>${usuario.GMAIL}</td> 
-                <td>${usuario.ATIVO ==1 ? "sim" :"Não"}</td>
-                <td>
-                  <button onclick="editar(${JSON.stringify(usuario)})">Editar</button>
-                  <button onclick="excluir(${usuario.ID})">Excluir</button>
-                </td> `;
+                                <td>${usuario.id}</td>
+                                <td>${usuario.nome}</td>
+                                <td>${usuario.gmail}</td> 
+                                <td>${usuario.ativo ==1 ? "sim" :"Não"}</td>
+                                <td>
+                                  <button onclick='editar(${JSON.stringify(usuario)})'>Editar</button>
+                                  <button onclick='excluir(${usuario.id})'>Excluir</button>
+                                </td> 
+                              `;
                   tbody.appendChild(tr);
               });
 
@@ -134,18 +135,21 @@
       }
 
       function editar(usuario){
-        const id=document.getElementById("id").value = usuario.ID;
-        const nome=document.getElementById("nome").value= usuario.NOME;
-        const gmail=document.getElementById("gmail").value= usuario.GMAIL;
-        const senha=document.getElementById("senha").value= usuario.SENHA;
-        const ativo=document.getElementById("ativo").value= usuario.ATIVO;
+        document.getElementById("id").value = usuario.id;
+        document.getElementById("nome").value= usuario.nome;
+        document.getElementById("gmail").value= usuario.gmail;
+        document.getElementById("senha").value= usuario.senha;
+        document.getElementById("ativo").value= usuario.ativo;
       }
+
       console.log(editar);
+
       async function excluir(id){
           if (confirm("deseja mesmo excluir este usuario?")){
             await fetch (url_api + "?id=" + id, {method: "DELETE"});
             carregar();
           }
+          console.log(excluir);
       }
       function limpar(){
         const id=document.getElementById("id").value = "";
