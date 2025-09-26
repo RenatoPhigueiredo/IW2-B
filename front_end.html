@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <style>
+        #logo{
+            height: 15%;
+            width: 15%;
+        }
+        #botao{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="LOGO AMD" id="logo">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Pesquise o PC" id="pesquisa"/>
+      <button onclick="carregar()" type="button" class="btn btn-secondary" id="botao">Listar produtos</button>
+      <button class="btn btn-outline-success" type="submit" onclick="carregarPesquisa()" id="botao">Pesquisar</button>
+    </form>
+  </div>
+</nav>
+
+     <!-- modal de cadastro -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Cadastrar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Produtos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+              <div class="modal-body">
+            <input type="hidden" id="id">
+                <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+          <input type="text" class="form-control" id="nome">
+        </div>
+                <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Quantidade</span>
+          <input type="text" class="form-control" id="gmail">
+        </div>
+            <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Data de chegada</span>
+          <input type="text" class="form-control" id="senha">
+        </div>
+            <div class="form-floating">
+          <select class="form-select" id="ativo" >
+            <option selected>Selecione:</option>
+            <option value="1">Peça nova</option>
+            <option value="0">Segunda Mão</option>
+          </select>
+          <label for="floatingSelect">Selecione se Usado ou Nâo</label>
+        </div>
+              </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" onclick="limpar()">Limpar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="salvar()">Salvar Cadastro</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+  <script src="./bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

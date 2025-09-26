@@ -5,54 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CADASTRO</title>
+    <link rel="website icon" href="https://s3-symbol-logo.tradingview.com/advanced-micro-devices--600.png" type="png" >
     <style>
-      /* a div td completa simbolizanbdo o cabeçalho */
-      .cabecalho{
-        border: 2px solid black;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        padding: 8px;
-        height: 100px;
-      }
-      /* espaçamento das tags de escrita */
-      input{
-        margin: 5px;
-      }
-      /* esapçamento entre os botoes e o select */
-      #ativo,
-      button{
-        margin: 8px;
-      }
+        #logo{
+            height: 15%;
+            width: 15%;
+        }
+        #botao{
+            margin-right: 20px;
+        }
+        .row{
+          margin: 10px;
+          padding: 3%;
+          background-color: rgba(156, 151, 151, 0.799);
+        }
+        #tabela{
+          margin-left: 4%;
+          width: 50%;
+        }
+        tr,td,th{
+          text-align: center;
+          background-color: rgba(201, 199, 199, 0.381);
+        }
     </style>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
 </head>
 <body>
-
-
-  <!-- cabecalho gerado -->
-  <div class="cabecalho">
-    <input type="hidden" id="id"><br>
-    <input type="text" id="nome" placeholder="Nome"><br>
-    <input type="email" id="gmail" placeholder="Email"><br>
-    <input type="password" id="senha" placeholder="Senha"><br>
-    <!-- seleção de ativo e Inativo -->
-    <select id="ativo">
-      <option value="1">Ativo</option>
-      <option value="0">Inativo</option>
-  </select><br>
-  <!-- botoes com a funcao de salvar e excluir -->
-   <button onclick="salvar()">Salvar</button><br>
-   <button onclick="limpar()">Limpar</button>
-
+    <!-- nav -->
+    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg" alt="LOGO AMD" id="logo">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Pesquise o PC" id="pesquisa"/>
+      <button onclick="carregar()" type="button" class="btn btn-secondary" id="botao">Listar produtos</button>
+      <button class="btn btn-outline-success" type="submit" onclick="carregarPesquisa()" id="botao">Pesquisar</button>
+    </form>
   </div>
+  
+</nav>
 
-  <!-- campodas pesquisas -->
-   <div>
-    <input type="text" id="pesquisa" placeholder="Pesquisar"><br>
-       <button onclick="carregarPesquisa()">Carregar</button> <!--pesquisa sobre um usuario especifico -->
-       <button onclick="carregar()">Listar Todos</button> <!--carrega todas as informacoesdo usuarios criados -->
-    </input>
-   </div>
+<div class="row ">
+  <div class="col-3">
+    <input type="hidden" id="id">
+        <div class="input-group mb-3">                    
+          <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+          <input type="text" class="form-control" id="nome">
+        </div></div>
+
+  <div class="col-3">
+    <div class="input-group mb-3">                    
+          <span class="input-group-text" id="inputGroup-sizing-default">Quantidade</span>
+          <input type="number" class="form-control" id="quantidade">
+        </div></div>
+
+  <div class="col-3">
+    <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Data de chegada</span>
+          <input type="date" class="form-control" id="dia">
+        </div></div>
+  <div class="col-3">
+      <div class="form-floating">
+          <select class="form-select" id="ativo" >
+            <option selected>Selecione:</option>
+            <option value="1">Peça nova</option>
+            <option value="0">Segunda Mão</option>
+          </select>
+          <label for="floatingSelect">Selecione se Usado ou Nâo</label>
+        </div></div>
+
+          <div class="col-3">
+        <button type="button" class="btn btn-warning" onclick="limpar()">Limpar</button>
+        <button type="button" class="btn btn-primary" onclick="salvar()">Salvar Cadastro</button>
+      </div>
+    </div>
+
+  
+          <!-- daqui para cima somente -->
+
+
+
 
    <table id="tabela">
     <!-- cabeçalho da tabela   -->
@@ -60,15 +91,16 @@
           <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Gmail</th>
-            <th>Status</th>
+            <th>Quantidade</th>
+            <th>Data</th>
+            <th>Novo:</th>
           </tr>
       </thead>
       <!-- corpo da tabela -->
       <tbody></tbody>
 
    </table>
-
+   <script src="./bootstrap/bootstrap.bundle.min.js"></script>
     <script>
       // url da api
       const url_api = "https://localhost/IW2-B/a.php";
@@ -92,7 +124,8 @@
                 tr.innerHTML =`
                                 <td>${usuario.id}</td>
                                 <td>${usuario.nome}</td>
-                                <td>${usuario.gmail}</td> 
+                                <td>${usuario.quantidade}</td> 
+                                <td>${usuario.dia}</td> 
                                 <td>${usuario.ativo ==1 ? "sim" :"Não"}</td>
                                 <td>
                                   <button onclick='editar(${JSON.stringify(usuario)})'>Editar</button>
@@ -117,11 +150,11 @@
       async function salvar(){
         const id=document.getElementById("id").value;
         const nome=document.getElementById("nome").value;
-        const gmail=document.getElementById("gmail").value;
-        const senha=document.getElementById("senha").value;
+        const quantidade=document.getElementById("quantidade").value;
+        const dia=document.getElementById("dia").value;
         const ativo=document.getElementById("ativo").value;
 
-        const payload = {ID: id, NOME: nome,GMAIL: gmail, SENHA :senha, ATIVO : ativo};
+        const payload = {ID: id, NOME: nome,QUANTIDADE:quantidade, DIA:dia, ATIVO : ativo};
 
         if(id){
           await fetch (url_api,{method: "PUT", body: JSON.stringify(payload)});
@@ -137,8 +170,8 @@
       function editar(usuario){
         document.getElementById("id").value = usuario.id;
         document.getElementById("nome").value= usuario.nome;
-        document.getElementById("gmail").value= usuario.gmail;
-        document.getElementById("senha").value= usuario.senha;
+        document.getElementById("quantidade").value= usuario.quantidade;
+        document.getElementById("dia").value= usuario.dia;
         document.getElementById("ativo").value= usuario.ativo;
       }
 
@@ -154,8 +187,8 @@
       function limpar(){
         const id=document.getElementById("id").value = "";
         const nome=document.getElementById("nome").value= "";
-        const gmail=document.getElementById("gmail").value = "";
-        const senha=document.getElementById("senha").value = "";
+        const quantidade=document.getElementById("quantidade").value = "";
+        const dia=document.getElementById("dia").value = "";
         const ativo=document.getElementById("ativo").value = "1 ";
         }
         carregar();

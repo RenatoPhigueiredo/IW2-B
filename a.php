@@ -7,7 +7,7 @@
  $host="localhost";
  $usuario="root";
  $senha="";
- $db="servidor";
+ $db="loja";
 //ligar com o banco de dados
  $con=new mysqli($host,$usuario,$senha,$db);
 
@@ -48,9 +48,9 @@
         //le todo o conteudo do body e transforma o em json
         $data= json_decode(file_get_contents("php://input"),true);
         
-        $stmt=$con->prepare("INSERT INTO usuarios (NOME,GMAIL,SENHA,ATIVO) VALUES(?,?,?,?)");
+        $stmt=$con->prepare("INSERT INTO usuarios (NOME,QUANTIDADE,DIA,ATIVO) VALUES(?,?,?,?)");
 
-        $stmt->bind_param("sssi",$data['NOME'],$data['GMAIL'],$data['SENHA'],$data['ATIVO']);
+        $stmt->bind_param("sssi",$data['NOME'],$data['QUANTIDADE'],$data['DIA'],$data['ATIVO']);
 
         $stmt->execute();
 
@@ -60,9 +60,9 @@
     case "PUT":
         $data= json_decode(file_get_contents("php://input"),true);
 
-        $stmt=$con->prepare("UPDATE usuarios SET NOME=?,GMAIL=?,SENHA=?,ATIVO=? WHERE ID=?");
+        $stmt=$con->prepare("UPDATE usuarios SET NOME=?,QUANTIDADE=?,DIA=?,ATIVO=? WHERE ID=?");
 
-        $stmt->bind_param("sssii",$data["NOME"],$data["GMAIL"],$data["SENHA"],$data["ATIVO"],$data["ID"]);
+        $stmt->bind_param("sssii",$data["NOME"],$data["QUANTIDADE"],$data["DIA"],$data["ATIVO"],$data["ID"]);
         
         $stmt->execute();
 
